@@ -755,7 +755,11 @@ body {
 
 @media screen and (max-width: 768px) {
   .header {
-    background: var(--color-dev);
+    background: var(--color-backsec);
+  }
+
+  .navbar a.active {
+    color: var(--color-base);
   }
 
   #menu-icon {
