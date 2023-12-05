@@ -56,16 +56,8 @@ body {
   font-weight: 600;
 }
 
-.logo::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--color-base);
-  animation: showRight 1s ease forwards;
-  animation-delay: 0.4s;
+.navbar {
+  position: relative;
 }
 
 .navbar a {
@@ -78,12 +70,12 @@ body {
 }
 
 .navbar a:hover {
-  color: var(--color-hover);
+  color: var(--color-dev);
 }
 
 .navbar a.active {
-  border: 1px solid;
   padding: 10px;
+  color: var(--color-dev);
   margin: 10px;
   border-radius: 10px;
 }
@@ -143,21 +135,10 @@ body {
 
 .home-content h1 {
   position: relative;
-  font-size: 56px;
+  display: inline-block;
+  font-size: 5.6rem;
   font-weight: 700;
-  line-height: 1.2;
-}
-
-.home-content h1::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--color-base);
-  animation: showRight 1s ease forwards;
-  animation-delay: 1s;
+  line-height: 1.3;
 }
 
 .home-content h3 {
@@ -167,34 +148,10 @@ body {
   color: var(--color-dev);
 }
 
-.home-content h3::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--color-base);
-  animation: showRight 1s ease forwards;
-  animation-delay: 1.3s;
-}
-
 .home-content p {
   position: relative;
   font-size: 16px;
   margin: 20px 0 40px;
-}
-
-.home-content p::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--color-base);
-  animation: showRight 1s ease forwards;
-  animation-delay: 1.6s;
 }
 
 .btn-box {
@@ -203,6 +160,18 @@ body {
   justify-content: space-between;
   width: 34.5rem;
   height: 5rem;
+}
+
+.btn-box .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--color-hover);
+  z-index: -1;
+  transition: 0.5s;
 }
 
 .btn-box .btn {
@@ -229,33 +198,8 @@ body {
   background: transparent;
 }
 
-.btn-box .btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: var(--color-hover);
-  z-index: -1;
-  transition: 0.5s;
-}
-
 .btn-box .btn:hover::before {
   width: 100%;
-}
-
-.home-content .btn-box::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--color-base);
-  animation: showRight 1s ease forwards;
-  animation-delay: 1.9s;
-  z-index: 2;
 }
 
 .home-sci {
@@ -264,19 +208,6 @@ body {
   width: 170px;
   display: flex;
   justify-content: space-between;
-}
-
-.home-sci::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--color-base);
-  animation: showRight 1s ease forwards;
-  animation-delay: 2.5s;
-  z-index: 2;
 }
 
 .home-sci a {
@@ -327,6 +258,7 @@ body {
 }
 
 .heading {
+  position: relative;
   padding-top: 10rem;
   font-size: 5rem;
   margin-bottom: 3rem;
@@ -359,8 +291,9 @@ body {
   border-radius: 50%;
   border-top: 0.2rem solid var(--color-backsec);
   border-bottom: 0.2rem solid var(--color-backsec);
-  border-left: 0.2rem solid var(--color-base);
-  border-right: 0.2rem solid var(--color-base);
+  border-left: 0.2rem solid var(--color-logo);
+  border-right: 0.2rem solid var(--color-logo);
+  animation: aboutSpinner 8s linear infinite;
 }
 
 .about-content {
@@ -720,6 +653,30 @@ body {
   color: var(--color-base);
 }
 
+/* ANIMATION RELOAD AND SCROLL */
+.animate {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-base);
+  z-index: 98;
+}
+
+.logo .animate,
+.navbar .animate,
+#menu-icon .animate,
+.home.show-animate .animate {
+  animation: showRight 1s ease forwards;
+  animation-delay: calc(0.3s * var(--i));
+}
+
+.animate.scroll {
+  transition: 1s ease;
+  transition-delay: calc(0.3s * var(--i));
+}
+
 /* KEYFRAMES ANIMATION */
 
 @keyframes showRight {
@@ -759,6 +716,18 @@ body {
   }
 }
 
+@keyframes aboutSpinner {
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes showRight {
+  100% {
+    width: 0;
+  }
+}
+
 /* BREAKPOINTS */
 @media screen and (max-width: 1200px) {
   html {
@@ -791,6 +760,7 @@ body {
 
   #menu-icon {
     display: block;
+    position: relative;
   }
 
   .navbar {
