@@ -423,7 +423,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 5rem;
-  padding: 6rem;
+  padding: 0 2rem;
+  padding-left: 12rem;
   max-width: 180rem;
   margin: 4rem 0 3rem;
 }
@@ -558,7 +559,7 @@ body {
   color: var(--color-logo);
   background: transparent;
   border-radius: 0.6rem;
-  border: 0.2rem solid var(--color-backsec);
+  border: 0.2rem solid var(--color-dev);
 }
 
 .contact form .input-box .input-field input::placeholder,
