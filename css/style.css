@@ -307,7 +307,7 @@ body {
 .about-content p {
   max-width: 120rem;
   font-size: 2rem;
-  margin: 10rem 0 3rem;
+  margin: 5rem 0 3rem;
 }
 
 .btn-box.btns {
@@ -423,9 +423,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 5rem;
-  padding: 9rem;
+  padding: 6rem;
   max-width: 180rem;
-  margin: 10rem 0 3rem;
+  margin: 4rem 0 3rem;
 }
 
 .skills-row .skills-column {
@@ -540,7 +540,7 @@ body {
   position: relative;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrapz;
+  flex-wrap: wrap;
 }
 
 .contact form .input-box .input-field {
@@ -837,6 +837,10 @@ body {
     font-size: 50%;
   }
 
+  .contact form .input-box .input-field {
+    width: 100%;
+  }
+
   .home-content h1 {
     display: flex;
     flex-direction: column;
@@ -850,28 +854,22 @@ body {
     width: 38px;
     height: 38px;
   }
-
-  .contact form .input-box .input-field {
-    width: 100%;
+  .footer {
+    flex-direction: column-reverse;
+  }
+  .footer p {
+    margin-top: 2rem;
+    text-align: center;
   }
 }
 
-@media screen and (max-width: 462px) {
+@media (max-width: 462px) {
   .home-content h1 {
     font-size: 5.2rem;
   }
 
   .education {
     padding: 10rem 4% 5rem 5%;
-  }
-
-  .footer {
-    flex-direction: column-reverse;
-  }
-
-  .footer p {
-    margin-top: 2rem;
-    text-align: center;
   }
 }
 
