@@ -734,6 +734,9 @@ body {
   html {
     font-size: 55%;
   }
+  .skills .skills-row {
+    padding-left: 3rem;
+  }
 }
 
 @media screen and (max-width: 991px) {
