@@ -9,9 +9,7 @@ function sendEmail() {
   const bodyMessage = `Full name: ${fullName.value}<br> Email: ${email.value}<br> Phone: ${phone.value}<br> Message: ${mess.value}<br>`;
 
   Email.send({
-    Host: "smtp.elasticemail.com",
-    Username: "ryzvaniuk202@gmail.com",
-    Password: "9E8BC6CA63A68F3169D2A171AE6593F066D6",
+    SecureToken: "ecefc249-90c6-4816-a535-93f19310e34f",
     To: "ryzvaniuk202@gmail.com",
     From: "ryzvaniuk202@gmail.com",
     Subject: subject.value,
@@ -19,9 +17,11 @@ function sendEmail() {
   }).then((message) => {
     if (message == "OK") {
       Swal.fire({
-        title: "Success!",
-        text: "Message sent successfully!",
+        position: "center",
         icon: "success",
+        title: "Your message sent succesffully",
+        showConfirmButton: false,
+        timer: 1500,
       });
     }
   });
@@ -31,4 +31,6 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   sendEmail();
+
+  e.target.reset();
 });

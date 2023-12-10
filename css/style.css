@@ -142,10 +142,7 @@ body {
 }
 
 .navbar a.active {
-  padding: 10px;
   color: var(--color-dev);
-  margin: 10px;
-  border-radius: 10px;
 }
 
 #menu-icon {
