@@ -43,7 +43,75 @@ body {
   z-index: 100;
   transition: 0.3s;
 }
+/* LIGHT MODE STYLE  */
+.mode {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.light-mode {
+  position: absolute;
+  opacity: 0;
+}
+
+.sun {
+  position: absolute;
+  font-size: 3em;
+  color: grey;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+  transform: scale(0);
+  transition: 1s ease;
+}
+
+.light-mode:checked ~ .sun {
+  transition-delay: 0.5s;
+  transform: scale(1) rotate(360deg);
+}
+
+.moon {
+  font-size: 3em;
+  color: grey;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+  transition: 1s ease;
+  transition-delay: 0.5s;
+}
+
+.light-mode:checked ~ .moon {
+  transform: rotate(360deg) scale(0);
+  transition-delay: 0s;
+}
+
+.toggle {
+  position: absolute;
+  display: block;
+  width: 65px;
+  height: 65px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1) inset 0 8px 8px
+    rgba(0, 0, 0, 0.1) inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+  z-index: -1;
+  transition: 1s;
+}
+
+.light-mode:checked ~ .toggle {
+  background: var(--color-logo);
+}
+
+.animateBg {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: red;
+  z-index: -4;
+  clip-path: circle(10% at 50% 50%);
+}
+/* LIGHT MODE STYLE  */
 .header.sticky {
   background: var(--color-base);
 }
